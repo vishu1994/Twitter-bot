@@ -1,7 +1,6 @@
 *.txt
 *.env
-*.py
-.ipynb/
+*.ipynb
 tweepybot.py
 user_lookup.py
 tweeter_api_key.txt

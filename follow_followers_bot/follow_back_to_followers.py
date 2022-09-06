@@ -1,16 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[26]:
-
-
-#OAuth 1.0a 
 from dotenv import load_dotenv
 load_dotenv()
 import requests
 import os
 import json  
-
+import not_followed_followers
 consumer_key = os.environ.get("API_KEY")
 consumer_secret = os.environ.get("API_KEY_SECRET")
 access_token = os.environ.get("Access_tokken")
@@ -43,9 +36,9 @@ for to_follow in not_followed_followers.main():
         print(json.dumps(json_response, indent=4, sort_keys=True))
     else:
         print("No unfollowed followers")
+print("Everything is upto date")
 
 
-# In[ ]:
 
 
 

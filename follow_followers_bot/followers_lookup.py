@@ -21,30 +21,22 @@ def bearer_Oauth(r):
 
 def connect_to_endpoint(url,params):
     response = requests.request("GET", url,auth=bearer_Oauth,params=params)
-    # print(response.status_code)
     if response.status_code!=200:
         raise Exception(f"Request returned an error: {response.status_code},{response.text}")
     return response.json()
 
 def main():
-    client_user_id = 1559575730752991233
+    client_user_id = os.environ.get("my_id")
     url = create_url(client_user_id)
     params = get_params()
     json_response = connect_to_endpoint(url, params)
     records = len(json_response["data"])
-    id_list = [] #empty list to collect all the ids of the followers account....
-    for record in range(records):#this for loop will create a collection of ids of the followers....
+    id_list = [] 
+    for record in range(records):
         all_followers_id = json_response["data"][record]["id"]
         id_list.append(all_followers_id)
     return id_list
     
-#    for followers_id in range(len(id_list)):
-       
-        # for i in all_followers_id:
-        #     print(i,end="")
-        #     print("\n")
-    # all_followers = json.dumps(json_response,indent=5,sort_keys=True)
-    # print(type(all_followers))
 if __name__=="__main__":
     main_data = main()
     print(main_data)
