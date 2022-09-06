@@ -41,7 +41,7 @@ def connect_to_endpoint(url, params):
 
 
 def main():
-    following_user_id = 1559575730752991233
+    following_user_id = os.environ.get("my_id")
     url = create_url(following_user_id)
     params = get_params()   
     json_response = connect_to_endpoint(url, params)
