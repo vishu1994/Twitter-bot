@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[24]:
-
-
 from dotenv import load_dotenv
 load_dotenv()
 from requests_oauthlib import OAuth1Session
