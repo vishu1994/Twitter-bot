@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[74]:
+# In[76]:
 
 
 from dotenv import load_dotenv
@@ -9,17 +9,13 @@ load_dotenv()
 import requests
 import os
 import json
+from requests_oauthlib import OAuth1Session
 
 def get_bearer_tokken():
     bearer_tokken = os.environ.get("Bearer_tokken")
     return bearer_tokken
 
 def oauth_credential():
-    # consumer_key = os.environ.get("API_KEY")
-    # consumer_secret = os.environ.get("API_KEY_SECRET")
-    # access_token = os.environ.get("Access_tokken")
-    # access_token_secret = os.environ.get("Access_tokken_secret")
-    # id = os.environ.get("my_id")
     my_dict = {"consumer_key":os.environ.get("API_KEY"),
                "consumer_secret":os.environ.get("API_KEY_SECRET"),
                "access_token":os.environ.get("Access_tokken"),
@@ -44,7 +40,6 @@ def headers(bearer_token):
     
 def connect_to_endpoint(url,params,headers):
     response = requests.get(url,headers=headers,params=params)
-    print(response.status_code)
     if response.status_code != 200:
         raise Exception(
             "Request returned an error: {} {}".format(
@@ -66,17 +61,11 @@ def get_response(url,payload,a):
         raise Exception("Request returned an error: {} {}".format(response.status_code, response.text))
     print("Response code: {}".format(response.status_code))
     json_response = response.json()
-#     print(json.dumps(json_response, indent=4, sort_keys=True))
     return json_response
 
 
-# bearer_token=os.environ.get("Bearer_tokken")
-# my_id =  os.environ.get("my_id")
-# end_point_url = input("Enter end point url")
-# url = create_url(my_id,end_point_url)
-# value1 = "tweet.fields"
-# value2 = "created_at"
-# params = get_params(value1,value2)
-# json_response = connect_to_endpoint(url,params,headers)
-# print(json.dumps(json_response, indent=4, sort_keys=True))
+# In[ ]:
+
+
+
 
