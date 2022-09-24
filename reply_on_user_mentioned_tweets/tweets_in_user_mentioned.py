@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[15]:
 
 
 from dotenv import load_dotenv
@@ -19,18 +19,13 @@ def main():
     value = "created_at" 
     params = utility.get_params(parameter,value)
     headers = utility.headers(bearer_tokken)
-    endpoint_response = utility.connect_to_endpoint_get(url,params,headers)
-    return endpoint_response  
+    all_tweets = utility.connect_to_endpoint_get(url,params,headers)
+    show_tweet(all_tweets)
+    return all_tweets  
     
 def show_tweet(json_response):
       print(json.dumps(json_response, indent=4, sort_keys=True))
-
-def tweet_ids(json_response):  
-    id_list = []
-    for tweet_id in range(len(json_response["data"])):  
-        id_list.append(json_response["data"][tweet_id]["id"])
-    return id_list
+        
 if __name__=="__main__":
-    endpoint_response = main()
-    endpoint_response
+    tweets_in_user_mentioned = main()
 

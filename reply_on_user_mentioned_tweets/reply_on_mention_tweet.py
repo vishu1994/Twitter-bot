@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[9]:
 
 
 from dotenv import load_dotenv
@@ -29,8 +29,7 @@ def main():
     user_credential = utility.oauth_credential()
     url = "https://api.twitter.com/2/tweets"
     user_mentioned_tweets = tweets_in_user_mentioned.main()
-    get_tweet_text_record = utility.search_tweet_records_in_db(user_mentioned_tweets)
-    for tweet_texts in get_tweet_text_record:
+    for tweet_texts in tweet_text_record:
         tweet_texts_in_lowercase = tweet_texts["text"].lower()
         if "help" in tweet_texts_in_lowercase:
             payload = {"text": "I will get back to you on this", "reply": {"in_reply_to_tweet_id": tweet_texts["id"]}}  
@@ -46,4 +45,10 @@ def main():
 
 if __name__=="__main__":
     main()
+
+
+# In[ ]:
+
+
+
 
