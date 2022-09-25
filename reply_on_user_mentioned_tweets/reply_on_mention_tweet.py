@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[22]:
 
 
 from dotenv import load_dotenv
@@ -29,26 +29,24 @@ def main():
     user_credential = utility.oauth_credential()
     url = "https://api.twitter.com/2/tweets"
     user_mentioned_tweets = tweets_in_user_mentioned.main()
-    for tweet_texts in tweet_text_record:
-        tweet_texts_in_lowercase = tweet_texts["text"].lower()
-        if "help" in tweet_texts_in_lowercase:
-            payload = {"text": "I will get back to you on this", "reply": {"in_reply_to_tweet_id": tweet_texts["id"]}}  
-            get_response(url,payload,user_credential)
-        elif "support" in tweet_texts_in_lowercase:
-            payload = {"text": "Reach me via dm", "reply": {"in_reply_to_tweet_id": tweet_texts["id"]}}
-            get_response(url,payload,user_credential)
-        else:
-            payload = {"text": "thankyou i will see it ASAP", "reply": {"in_reply_to_tweet_id": tweet_texts["id"]}}
-            get_response(url,payload,user_credential)
-            
+#     print(user_mentioned_tweets)
+    for tweet_texts in user_mentioned_tweets["data"]:
+        try:
+            tweet_texts_in_lowercase = tweet_texts["text"].lower()
+            if "help" in tweet_texts_in_lowercase:
+                payload = {"text": "I will get back to you on this", "reply": {"in_reply_to_tweet_id": tweet_texts["id"]}}  
+                get_response(url,payload,user_credential)
+            elif "support" in tweet_texts_in_lowercase:
+                payload = {"text": "Reach me via dm", "reply": {"in_reply_to_tweet_id": tweet_texts["id"]}}
+                get_response(url,payload,user_credential)
+            else:
+                payload = {"text": "thankyou i will see it ASAP", "reply": {"in_reply_to_tweet_id": tweet_texts["id"]}}
+                get_response(url,payload,user_credential)
+        
+        except Exception as exception:
+            print(exception)
     return ""
 
 if __name__=="__main__":
     main()
-
-
-# In[ ]:
-
-
-
 
