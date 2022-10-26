@@ -22,16 +22,22 @@ In this project, we have used some very latest and new technologies for our proj
 You need these modules and technologies in your system to run this project. We have put all these modules/technology in requirements.txt
 
 ## How to run this project
-you need to clone this repository in your repository.
+1) you need to clone this repository in your repository.
 > git clone https://github.com/vishu1994/Twitter-bot.git  
 
-After that open your terminal and run the different-different python files
+2) After that  run a command on  your terminal 
+> pip install -r requirements.txt
+
+ this will donwnload all the requirements to run this project in you system.  
+
+
+3) After that open your terminal and run the different-different python files
 > python filename 
 
-To make this project automated install cron jobs in your system. Then in the terminal run this code
+4) To make this project automated install cron jobs in your system. Then in the terminal run this code
 > crontab -e  
 
-Now press i. You will be enter in insert mode then type
+5) Now press i. You will be enter in insert mode then type
 
 > \* \* \* \* \* /path/to/python3python_file>>/log_file/where/you_want_to/log_output/of_crontab 2>&1
 
@@ -43,5 +49,6 @@ Now press i. You will be enter in insert mode then type
 1. Fifty * shows the day of week 0-6.
 
 ## Output
+
 
 ![output image](output.png)
