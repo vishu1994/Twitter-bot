@@ -44,4 +44,4 @@ Now press i. You will be enter in insert mode then type
 
 ## Output
 
-![output_image](https://ibb.co/0CW38RF)
+![output image](output.png)
