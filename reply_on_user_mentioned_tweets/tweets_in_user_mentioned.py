@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[15]:
+# In[24]:
 
 
 from dotenv import load_dotenv
@@ -10,6 +10,7 @@ import os
 import json
 import utility
 import pymongo
+import time
 def main():
     bearer_tokken=utility.get_bearer_tokken()
     keys = utility.oauth_credential()
@@ -24,8 +25,17 @@ def main():
     return all_tweets  
     
 def show_tweet(json_response):
-      print(json.dumps(json_response, indent=4, sort_keys=True))
+    epoch = time.time()
+    current_date_time = time.ctime(epoch)
+    print("Current time and date:-",current_date_time)
+    print(json.dumps(json_response, indent=4, sort_keys=True))
         
 if __name__=="__main__":
     tweets_in_user_mentioned = main()
+
+
+# In[ ]:
+
+
+
 
