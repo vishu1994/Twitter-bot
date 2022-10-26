@@ -42,3 +42,6 @@ Now press i. You will be enter in insert mode then type
 1. Forth * shows month of year 1-12 months.
 1. Fifty * shows the day of week 0-6.
 
+## Output
+
+![output_image](https://ibb.co/0CW38RF)
