@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[5]:
-
-
-#OAuth 1.0a 
 from dotenv import load_dotenv
 load_dotenv()
 import requests
@@ -47,6 +41,7 @@ def main():
     follow_back(url,user_data)
 
 if __name__=="__main__":
+    print("follow back to followers")
     main()
 
 
